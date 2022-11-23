@@ -29,8 +29,10 @@ jobs:
           commit-message: "update openapi"
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          branch: feature/update-openapi
+          signoff: false
+          branch: feature/update-graphql-schema
           branch-suffix: timestamp
           delete-branch: true
-          title: "OpenAPI のアップデートと諸々の生成"
-          body: updated openapi
+          title: "[bot] Update OpenAPI"
+          body: OpenAPI has been updated
+          labels: automerge # automerge-action を使う場合必要
