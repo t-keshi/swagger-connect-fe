@@ -1,0 +1,36 @@
+name: Update OpenAPI
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - update-openapi
+
+jobs:
+  update-openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      # - name: Install
+      #   run: npm ci
+      # - name: Generate files from schema
+      #   run: npm run generate:all
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          commit-message: "update openapi"
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: feature/update-openapi
+          branch-suffix: timestamp
+          delete-branch: true
+          title: "OpenAPI のアップデートと諸々の生成"
+          body: updated openapi
