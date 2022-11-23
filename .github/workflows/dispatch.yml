@@ -1,5 +1,6 @@
 name: Dispatch OpenAPI Schema Update
 on:
+  workflow_dispatch:
   push:
     branches: [develop]
 jobs:
