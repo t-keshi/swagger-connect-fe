@@ -17,10 +17,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-      - name: Install
-        run: npm ci
-      - name: Generate files from schema
-        run: npm run generate:all
+      # - name: Install
+      #   run: npm ci
+      # - name: Generate files from schema
+      #   run: npm run generate:all
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
