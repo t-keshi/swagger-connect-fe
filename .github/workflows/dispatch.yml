@@ -17,7 +17,7 @@ jobs:
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.ORG_SECRET }}
+          API_TOKEN_GITHUB: ${PERSONAL_ACCESS_TOKEN}
         with:
           source_file: "docs/openapi.yml"
           destination_repo: "t-keshi/swagger-connect-fe"
@@ -32,6 +32,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           repository: "t-keshi/swagger-connect-fe"
-          token: ${{ secrets.ORG_SECRET }}
+          token: ${PERSONAL_ACCESS_TOKEN}
           event-type: update-openapi
         if: env.GIT_DIFF
