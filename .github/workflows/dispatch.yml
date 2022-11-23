@@ -1,4 +1,4 @@
-name: Dispatch OpenAPI Schema Update
+name: Dispatch OpenAPI
 on:
   workflow_dispatch:
   push:
