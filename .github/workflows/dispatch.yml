@@ -20,7 +20,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.ORG_SECRET }}
         with:
           source_file: "docs/openapi.yml"
-          destination_repo: "swagger-connect-fe"
+          destination_repo: "t-keshi/swagger-connect-fe"
           destination_folder: ""
           destination_branch: "develop"
           user_email: "quick.resp.biz094@gmail.com"
@@ -31,7 +31,7 @@ jobs:
       - name: Dispatch update-openapi
         uses: peter-evans/repository-dispatch@v1
         with:
-          repository: "swagger-connect-fe"
+          repository: "t-keshi/swagger-connect-fe"
           token: ${{ secrets.ORG_SECRET }}
           event-type: update-openapi
         if: env.GIT_DIFF
